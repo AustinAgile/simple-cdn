@@ -8,7 +8,6 @@ router.get('/:filename*', function(req, res, next) {
 
 	var path = req.params.filename+req.params[0];
 	if (path == "D3js/prc/inputs") {//Change this to check if is dir, and read files recursively.
-		console.log(path);
 		fs.readdir(options.root+path, function(err, files1) {
 			fs.readdir(options.root+path+"/tests", function(err, files2) {
 				var files = [];

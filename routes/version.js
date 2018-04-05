@@ -18,7 +18,7 @@ function getImageTagFromKubernetes(cb) {
 	var K8s = require('k8s');
 	fs.readFile("/var/run/secrets/kubernetes.io/serviceaccount/token", function(err, token) {
 		var kubeapi = K8s.api({
-			endpoint: 'https://192.168.99.100:8443',
+			endpoint: 'https://'+process.env.KUBERNETES_SERVICE_HOST+':'+process.env.KUBERNETES_SERVICE_PORT_HTTPS,
 			version: '/api/v1',
 			auth: {
 				token: token.toString()

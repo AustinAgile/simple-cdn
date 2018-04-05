@@ -3,7 +3,6 @@
 */
 
 var app = require('./app');
-var debug = require('debug')('docker:server');
 var http = require('http');
 
 /**
@@ -11,7 +10,7 @@ var http = require('http');
 */
 
 var port = normalizePort(process.env.PORT || '3030');
-console.log(port);
+console.log('PBR Simulator starting...');
 app.set('port', port);
 
 /**
@@ -86,5 +85,5 @@ function onListening() {
 		? 'pipe ' + addr
 		: 'port ' + addr.port
 	;
-	debug('Listening on ' + bind);
+	console.log('Listening on ' + bind);
 }

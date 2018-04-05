@@ -25,7 +25,7 @@ function getImageTagFromKubernetes(cb) {
 			},
 			strictSSL: false
 		});
-		kubeapi.get('namespaces/default/pods/'+process.env.MY_POD_NAME)
+		kubeapi.get('namespaces/'+process.env.MY_POD_NAMESPACE+'/pods/'+process.env.MY_POD_NAME)
 			.then(function(data) {
 				cb(null, /:([^:]+$)/.exec(data.spec.containers.filter(function(container) {
 					return container.name = "d3js";
